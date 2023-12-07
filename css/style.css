@@ -32,3 +32,15 @@
   background-position: center;
   height: 300px;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  border: 2px solid rgba(60, 0, 255, 0.55);
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}

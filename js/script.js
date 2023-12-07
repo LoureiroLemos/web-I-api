@@ -12,11 +12,28 @@ const getAllPosts = async () => {
 
         characters.forEach((element) => {
             console.log(
-                `Id do Personagem: ${element.id} \nNome: ${element.name} \nEspécie: ${element.species} \nStatus: ${element.status} \nLocalização: ${element.location.name}`
-            )           
-        });
-
-    } catch (error) {
+                `Id do Personagem: ${element.id} \nNome: ${element.name} \nEspécie: ${element.species} \nStatus: ${element.status} \nLocalização: ${element.location.name}`)
+                var container = document.querySelector(".container");
+                let card = `
+                <div class="card">
+                        <div class="card-img">
+                            <figure>
+                                <img src="${element.image}" alt="Imagem do ${element.name}" />
+                            </figure>
+                        </div>
+                        <div class="card-conteudo">
+                            <h2>Nome: ${element.name}</h2>
+                            <p>
+                                Espécie: ${element.species}
+                            </p>
+                            
+                        </div>
+                    </div> 
+                `   
+                container.innerHTML += card;
+            });
+                    
+        } catch (error) {
         console.log(error);
     }
 
@@ -25,3 +42,7 @@ const getAllPosts = async () => {
 }
 
 getAllPosts();
+
+
+
+
