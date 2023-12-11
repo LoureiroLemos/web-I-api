@@ -1,6 +1,6 @@
-const getAllPosts = async () => {
+async function getAllPosts(pg) {
     try{
-        const res = await fetch(`https://rickandmortyapi.com/api/character/`);
+        const res = await fetch(`https://rickandmortyapi.com/api/character/?page=${pg}`);
         const data  = await res.json();
 
         if (!res.ok) {
@@ -26,22 +26,32 @@ const getAllPosts = async () => {
                             <p>
                                 Espécie: ${element.species}
                             </p>
+                            <p> Localização: ${element.location.name} </p>
                             
                         </div>
                     </div> 
                 `   
                 container.innerHTML += card;
             });
-                    
+                 
         } catch (error) {
         console.log(error);
     }
-
-
-
 }
 
+let maisPersonagens = document.querySelector("button");
+
 getAllPosts();
+
+let pg = 1;
+maisPersonagens.addEventListener("click", () => {
+pg = pg + 1;
+getAllPosts(pg);
+console.log(pg);
+getAllPosts.preventDefault();   
+});
+
+
 
 
 
