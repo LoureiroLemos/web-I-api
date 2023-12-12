@@ -1,5 +1,5 @@
 const form = document.getElementById('personagem-form');
-const resultados = document.querySelector(".resultados")
+const container = document.querySelector(".container")
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -7,7 +7,7 @@ form.addEventListener('submit', async (event) => {
     const nome = encodeURIComponent(form.querySelector('#nome').value.trim());
     const tipo = form.querySelector('#tipo').value;
   
-    resultados.innerHTML = '';
+    container.innerHTML = '';
   
     try {
       const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${nome}`);
@@ -19,7 +19,7 @@ form.addEventListener('submit', async (event) => {
       const data = await response.json();
   
       if (!data.results.length) {
-        resultados.innerHTML = `<p>Nenhum personagem encontrado.</p>`;
+        container.innerHTML = `<p>Nenhum personagem encontrado.</p>`;
         return;
       }
   
@@ -53,10 +53,10 @@ form.addEventListener('submit', async (event) => {
   
         
         card.appendChild(conteudo);
-        resultados.appendChild(card);
+        container.appendChild(card);
       });
     } catch (error) {
       console.error(error);
-      resultados.innerHTML = '<p>Ocorreu um erro durante a busca.</p>';
+      container.innerHTML = '<p>Ocorreu um erro durante a busca.</p>';
     }
   });
