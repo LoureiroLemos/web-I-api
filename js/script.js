@@ -40,8 +40,8 @@ async function getAllPosts(pg) {
     }
   }
   
-  let maisPersonagens = document.querySelector("#maisPersonagens");
-  let menosPersonagens = document.querySelector("#menosPersonagens");
+  var maisPersonagens = document.querySelector("#maisPersonagens");
+  var menosPersonagens = document.querySelector("#menosPersonagens");
   getAllPosts();
   
   let pg = 1;
@@ -63,7 +63,24 @@ async function getAllPosts(pg) {
     
     event.preventDefault();
   });
-  
+
+  getAllPosts();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
