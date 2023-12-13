@@ -50,13 +50,93 @@ form.addEventListener('submit', async (event) => {
         const p3 = document.createElement('p');
         p3.textContent = `Localização: ${personagem.location.name}`;
         conteudo.appendChild(p3);
-  
+
+        const btnPost = document.createElement('button');
+        btnPost.textContent = 'POST!';
+        btnPost.id = `btnPost-${personagem.id}`;
+        conteudo.appendChild(btnPost);
+
+        const btnDelete = document.createElement('button');
+        btnDelete.textContent = 'DELETE!';
+        btnDelete.id = `btnDelete-${personagem.id}`;
+        conteudo.appendChild(btnDelete);
         
         card.appendChild(conteudo);
         container.appendChild(card);
+
+        btnPost.addEventListener('click', () => {
+          console.log(`clicou no personagem ${personagem.name}`);
+
+          const createPost= async (novoPostJSON) => {
+            try {
+              const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                  "Content-Type": "application/json; charset=UTF-8",
+                },
+                body: novoPostJSON,
+              });
+          
+              const data = await res.json();
+              console.log(data);
+          
+              if (!res.ok) {
+                console.log(data.description);
+                return;
+              }
+          
+            } catch (error) {
+              console.log(`Erro - ${error}`);
+            }
+          }
+
+          
+
+          let novoPost ={
+            userId: `${personagem.id}`,
+            title: `Character: ${personagem.name}`,
+            body: `This character was last seen in ${personagem.location.name}`,
+          };
+
+          let novoPostJSON = JSON.stringify(novoPost);
+
+          createPost(novoPostJSON);
+        });
+
+        btnDelete.addEventListener('click', () => {
+          console.log(`clicou no personagem ${personagem.name}`);
+
+          async function deletePost(id) {
+          try {
+            const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, 
+              {
+                method: 'DELETE',
+              }
+            );
+        
+            const data = await res.json();
+
+            if (!res.ok) {
+              console.log(data.description);
+              return;
+            }
+
+            console.log(data);
+        
+          } catch (error) {
+            console.log(`Erro - ${error}`);
+          }
+        }
+        let id = `${personagem.id}`
+        deletePost(id);
+        })
+
+       
       });
     } catch (error) {
       console.error(error);
-      container.innerHTML = '<p>Ocorreu um erro durante a busca.</p>';
-    }
-  });
+    }
+});
+
+
+
