@@ -51,17 +51,21 @@ form.addEventListener('submit', async (event) => {
         p3.textContent = `Localização: ${personagem.location.name}`;
         conteudo.appendChild(p3);
 
+        const divBtn = document.createElement('div');
+        divBtn.classList.add('btn-container');
+
         const btnPost = document.createElement('button');
         btnPost.textContent = 'POST!';
         btnPost.id = `btnPost-${personagem.id}`;
-        conteudo.appendChild(btnPost);
+        divBtn.appendChild(btnPost);
 
         const btnDelete = document.createElement('button');
         btnDelete.textContent = 'DELETE!';
         btnDelete.id = `btnDelete-${personagem.id}`;
-        conteudo.appendChild(btnDelete);
+        divBtn.appendChild(btnDelete);
         
         card.appendChild(conteudo);
+        card.appendChild(divBtn);
         container.appendChild(card);
 
         btnPost.addEventListener('click', () => {

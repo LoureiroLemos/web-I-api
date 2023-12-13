@@ -52,7 +52,13 @@ main {
   padding: 20px;
   margin: 10px;
   width: fit-content;
-  height: 450px;
+  height: 490px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
 }
 
 .card-conteudo {
@@ -61,7 +67,7 @@ main {
   width: 300px;
 }
 
-footer {
+.card footer {
   position: sticky;
   bottom: 0;
   width: 100%;
