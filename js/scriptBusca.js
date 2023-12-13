@@ -5,7 +5,7 @@ form.addEventListener('submit', async (event) => {
     event.preventDefault();
   
     const nome = encodeURIComponent(form.querySelector('#nome').value.trim());
-    const tipo = form.querySelector('#tipo').value;
+    
   
     container.innerHTML = '';
   
