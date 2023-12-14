@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/script.js" defer></script>
-    <title>Document</title>
+    <title>Rick e Morty</title>
   </head>
   <body>
     <header class="container-header">
@@ -20,8 +20,7 @@
 
       <nav class="header-menu">
         <ul>
-          <li><a href="./index.html">Início</a></li>
-          <li><a href="./">Personagens</a></li>
+          <li><a href="./index.html">Todos os Personagens</a></li>
           <li><a href="./buscaPersonagem.html">Busca de Personagens</a></li>
         </ul>
       </nav>
@@ -29,18 +28,22 @@
 
     <main>
       <section id="personagens">
-        <h1>Personagens</h1>
+        <div class="h1-container">
+          <h1>Personagens</h1>
+        </div>
 
         <div class="container"></div>
       </section>
 
-      <a href="">
-        <button id="menosPersonagens">Voltar</button>
-      </a>
+      <div id="botoes">
+        <a href="">
+          <button id="menosPersonagens">Voltar</button>
+        </a>
 
-      <a href="">
-        <button id="maisPersonagens">Mais Personagens</button>
-      </a>
+        <a href="">
+          <button id="maisPersonagens">Mais Personagens</button>
+        </a>
+      </div>
     </main>
 
     <footer>

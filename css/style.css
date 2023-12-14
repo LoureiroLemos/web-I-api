@@ -8,11 +8,12 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-main {
-  min-height: 100vh;
-  padding-bottom: 40px;
-  overflow: auto;
-  position: relative;
+h1 {
+  font-size: 2.5rem;
+}
+
+.h1-container {
+  margin: 30px;
 }
 
 .container-header {
@@ -33,6 +34,28 @@ main {
   text-decoration: none;
   color: white;
 }
+main {
+  min-height: 100vh;
+  padding-bottom: 40px;
+  overflow: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#botoes {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+}
+
+#menosPersonagens,
+#maisPersonagens {
+  width: 200px;
+  height: 50px;
+}
 
 .container {
   display: flex;
@@ -40,19 +63,20 @@ main {
   align-items: center;
   flex-wrap: wrap;
 }
+
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   border: 2px solid rgba(247, 246, 250, 0.55);
   border-radius: 2px;
 
-  padding: 20px;
+  padding: 10px;
   margin: 10px;
   width: fit-content;
-  height: 490px;
+  height: 450px;
 }
 
 .btn-container {
@@ -72,4 +96,18 @@ main {
   bottom: 0;
   width: 100%;
   height: 40px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 350px;
+}
+
+@media screen and (max-width: 768px) {
+  .container-header {
+    flex-direction: column;
+  }
 }
